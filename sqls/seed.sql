@@ -1,5 +1,5 @@
-INSERT INTO users (name, email, username, password) VALUES ('Michael Mote', 'michael.mote@test.com', 'Mikesawce', '12345');
-INSERT INTO users (name, email, username, password) VALUES ('Michael Mote1', 'michael.mote1@test.com', 'Mikesawce1', '123456');
+INSERT INTO users (name, email, username, password) VALUES ('Michael Mote', 'michael.mote@test.com', 'Mikesawce', '12345asdf');
+INSERT INTO users (name, email, username, password) VALUES ('Michael Mote1', 'michael.mote1@test.com', 'Mikesawce1', '123456asd');
 INSERT INTO users (name, email, username, password) VALUES ('Michael Mote2', 'michael.mote2@test.com', 'Mikesawce2', '1234567');
 INSERT INTO users (name, email, username, password) VALUES ('Michael Mote3', 'michael.mote3@test.com', 'Mikesawce3', '12345678');
 
