@@ -2,10 +2,10 @@
   "name": "mvp_dak",
   "version": "1.0.0",
   "description": "Hi!",
-  "main": "./server/server.js",
+  "main": "/server/server.js",
   "scripts": {
-    "start": "node server.js",
-    "server": "nodemon server.js"
+    "start": "node /server/server.js",
+    "server": "nodemon /server/server.js"
   },
   "keywords": [],
   "author": "",
