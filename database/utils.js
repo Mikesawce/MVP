@@ -1,5 +1,14 @@
 const pool = require('./db')
 
+const validateData = (data, keys) => {
+    if (!keys.every(prop => data[prop])) {
+        let error = new Error('Invalid Data')
+        error.status = 400
+        res.set('Content-Type', 'plain/text')
+        throw error
+    }
+}
+
 const getAll = async (query, res, next) => {
     try {
         const client = await pool.connect()
@@ -30,11 +39,21 @@ const getOne = async (query, id, res, next) => {
     }
 }
 
-const postOne = async (query, id, res, next) => {
-    
+const postOne = async (query, newItem, keys, params, res, next) => {
+    try {
+        const client = await pool.connect()
+        validateData(newItem, keys)
+        const result = await client.query(query, params)
+        newItem.id = result.rows[0].id
+        res.status(201).json(newItem)
+        client.release()
+    } catch (err) {
+        next(err)
+    }
 }
 
 module.exports = {
     getAll,
-    getOne
+    getOne,
+    postOne
 }   

@@ -6,7 +6,7 @@ const app = express()
 //import routes
 const adminRoutes = require('./routes/adminRoutes')
 
-// app.use(express.json())
+app.use(express.json())
 // app.use(express.static('public'))
 
 //home

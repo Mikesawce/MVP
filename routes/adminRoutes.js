@@ -28,8 +28,13 @@ router.get('/locations/:id', async (req, res, next) => {
     await handlers.getOne(query, [id], res, next)
 })
 //create one user
-router.post('/users', async (req, res) => {
-    res.send('hi')
+router.post('/users', async (req, res, next) => {
+    const newItem = req.body
+    const keys = Object.keys(req.body)
+    const params = keys.map(key => newItem[key])
+    const query = `INSERT INTO users(name, email, username, password)
+    VALUES($1, $2, $3, $4) RETURNING user_id`
+    await handlers.postOne(query, newItem, keys, params, res, next)
 })
 //create one location
 router.post('/locations', async (req, res) => {
