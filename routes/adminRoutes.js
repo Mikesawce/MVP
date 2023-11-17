@@ -72,7 +72,6 @@ router.delete('/users/:id',async (req, res, next) => {
     const id = req.params.id
     const newItem = req.body
     const keys = Object.keys(newItem)
-    const params = keys.map(key => newItem[key])
     const query = 'SELECT * FROM users WHERE user_id = $1'
     const query2 = 'DELETE FROM users WHERE user_id = $1'
     await handlers.deleteOne(query, query2, id, newItem, keys, res, next)
@@ -82,7 +81,6 @@ router.delete('/locations/:id', async (req, res, next) => {
     const id = req.params.id
     const newItem = req.body
     const keys = Object.keys(newItem)
-    const params = keys.map(key => newItem[key])
     const query = 'SELECT * FROM us_locations WHERE location_id = $1'
     const query2 = 'DELETE FROM us_locations WHERE location_id = $1'
     await handlers.deleteOne(query, query2, id, newItem, keys, res, next)
