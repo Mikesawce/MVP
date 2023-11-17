@@ -1,17 +1,23 @@
 const express = require('express')
 const router = express.Router()
+// const pool = require('../database/db')
+const handler = require('../database/dbClientHandler')
 
 //get all users
-router.get('/users', async (req, res) => {
-    res.send('hi again')
+router.get('/users', async (req, res, next) => {
+    const query = 'SELECT * FROM users'
+    await handler(query, [], res, next)
 })
 //get all locations
-router.get('/locations', async (req, res) => {
-    res.send('locations!')
+router.get('/locations', async (req, res, next) => {
+    const query = 'SELECT * FROM us_locations'
+    await handler(query, [], res, next)
 })
 //get one user
-router.get('/users/:id', async (req, res) => {
-    res.send('hi')
+router.get('/users/:id', async (req, res, next) => {
+    const id = req.params.id
+    const query = 'SELECT * FROM users WHERE user_id = $1'
+    await handler(query, [id], res, next)
 })
 //get one location
 router.get('/locations/:id', async (req, res) => {
