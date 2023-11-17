@@ -1,18 +1,18 @@
+//modules
 const express = require('express')
 const pool = require('./database/db')
+const cors = require('cors')
 
 const app = express()
 
 //import routes
 const adminRoutes = require('./routes/adminRoutes')
 
+//middleware
+app.use(cors())
 app.use(express.json())
-// app.use(express.static('public'))
+app.use(express.static('public'))
 
-//home
-app.get('/', async (req, res) => {
-    res.send('hi')
-})
 //routes
 app.use('/admin', adminRoutes)
 
