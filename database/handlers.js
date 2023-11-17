@@ -11,12 +11,10 @@ const validateData = (data, keys) => {
 
 const getAll = async (query, res, next) => {
     try {
-        const client = await pool.connect()
-        const result = await client.query(query)
+        const result = await pool.query(query)
      
         res.status(200).json(result.rows)
     
-        client.release()
     } catch (err) {
         next(err)
         }
@@ -24,8 +22,7 @@ const getAll = async (query, res, next) => {
 
 const getOne = async (query, id, res, next) => {
     try {
-        const client = await pool.connect()
-        const result = await client.query(query, id)
+        const result = await pool.query(query, id)
 
         if (!id) {
             let error = new Error('Wrong path or Not found')
@@ -41,12 +38,36 @@ const getOne = async (query, id, res, next) => {
 
 const postOne = async (query, newItem, keys, params, res, next) => {
     try {
-        const client = await pool.connect()
         validateData(newItem, keys)
-        const result = await client.query(query, params)
+        const result = await pool.query(query, params)
         newItem.id = result.rows[0].id
         res.status(201).json(newItem)
-        client.release()
+    } catch (err) {
+        next(err)
+    }
+}
+
+const editOne = async (query, query2, id, newItem, keys, params, res, next) => {
+    try {
+        validateData(newItem, keys)
+        const result = await pool.query(query, [id])
+    
+        const existingItem = result.rows[0]
+
+        for (const key in newItem) {
+            if (newItem.hasOwnProperty(key)) {
+                existingItem[key] = newItem[key]
+            }
+        }
+
+        const updatedResult = await pool.query(query2, [...params, id])
+        if (updatedResult.rowCount === 1) {
+            res.status(200).json(existingItem)
+        } else {
+            let error = new Error('Failed to Update')
+            error.status = 500
+            throw error
+        }
     } catch (err) {
         next(err)
     }
@@ -55,5 +76,6 @@ const postOne = async (query, newItem, keys, params, res, next) => {
 module.exports = {
     getAll,
     getOne,
-    postOne
+    postOne,
+    editOne
 }   

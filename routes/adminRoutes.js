@@ -30,23 +30,42 @@ router.get('/locations/:id', async (req, res, next) => {
 //create one user
 router.post('/users', async (req, res, next) => {
     const newItem = req.body
-    const keys = Object.keys(req.body)
+    const keys = Object.keys(newItem)
     const params = keys.map(key => newItem[key])
     const query = `INSERT INTO users(name, email, username, password)
         VALUES($1, $2, $3, $4) RETURNING user_id`
     await handlers.postOne(query, newItem, keys, params, res, next)
 })
 //create one location
-router.post('/locations', async (req, res) => {
-    res.send('hi')
+router.post('/locations', async (req, res, next) => {
+    const newItem = req.body
+    const keys = Object.keys(newItem)
+    const params = keys.map(key => newItem[key])
+    const query = `INSERT INTO us_locations(name, city, state, zipcode)
+        VALUES($1, $2, $3, $4) RETURNING location_id`
+    await handlers.postOne(query, newItem, keys, params, res, next)
 })
 //edit one user
-router.patch('/users/:id', async (req, res) => {
-    res.send('hi')
+router.patch('/users/:id', async (req, res, next) => {
+    const id = req.params.id
+    const newItem = req.body
+    const keys = Object.keys(newItem)
+    const params = keys.map(key => newItem[key])
+    const query = 'SELECT * FROM users WHERE user_id = $1'
+    const query2 = `UPDATE users SET name = $1, email = $2, username = $3,
+        password = $4 WHERE user_id = $5`
+    await handlers.editOne(query, query2, id, newItem, keys, params, res, next)
 })
 //edit one location
-router.patch('/locations/:id', async (req, res) => {
-    res.send('hi')
+router.patch('/locations/:id', async (req, res, next) => {
+    const id = req.params.id
+    const newItem = req.body
+    const keys = Object.keys(newItem)
+    const params = keys.map(key => newItem[key])
+    const query = 'SELECT * FROM us_locations WHERE location_id = $1'
+    const query2 = `UPDATE us_locations SET name = $1, city = $2, state = $3,
+        zipcode = $4 WHERE location_id = $5`
+    await handlers.editOne(query, query2, id, newItem, keys, params, res, next)
 })
 //delete one user
 router.delete('/users/:id',async (req, res) => {
