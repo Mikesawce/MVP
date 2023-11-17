@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
-// const pool = require('../database/db')
-const handlers = require('../database/utils')
+const pool = require('../database/db')
+const handlers = require('../database/handlers')
 
 //following routes are for testing/administrative purpose
 
@@ -33,7 +33,7 @@ router.post('/users', async (req, res, next) => {
     const keys = Object.keys(req.body)
     const params = keys.map(key => newItem[key])
     const query = `INSERT INTO users(name, email, username, password)
-    VALUES($1, $2, $3, $4) RETURNING user_id`
+        VALUES($1, $2, $3, $4) RETURNING user_id`
     await handlers.postOne(query, newItem, keys, params, res, next)
 })
 //create one location
