@@ -68,12 +68,24 @@ router.patch('/locations/:id', async (req, res, next) => {
     await handlers.editOne(query, query2, id, newItem, keys, params, res, next)
 })
 //delete one user
-router.delete('/users/:id',async (req, res) => {
-    res.send('hi')
+router.delete('/users/:id',async (req, res, next) => {
+    const id = req.params.id
+    const newItem = req.body
+    const keys = Object.keys(newItem)
+    const params = keys.map(key => newItem[key])
+    const query = 'SELECT * FROM users WHERE user_id = $1'
+    const query2 = 'DELETE FROM users WHERE user_id = $1'
+    await handlers.deleteOne(query, query2, id, newItem, keys, res, next)
 })
 //delete one location
-router.delete('/locations/:id', async (req, res) => {
-    res.send('hi')
+router.delete('/locations/:id', async (req, res, next) => {
+    const id = req.params.id
+    const newItem = req.body
+    const keys = Object.keys(newItem)
+    const params = keys.map(key => newItem[key])
+    const query = 'SELECT * FROM us_locations WHERE location_id = $1'
+    const query2 = 'DELETE FROM us_locations WHERE location_id = $1'
+    await handlers.deleteOne(query, query2, id, newItem, keys, res, next)
 })
 
 module.exports = router

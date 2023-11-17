@@ -12,8 +12,8 @@ CREATE TABLE users (
 
 CREATE TABLE friends (
     fl_id SERIAL PRIMARY KEY,
-    requestee_id INTEGER REFERENCES users (user_id),
-    acceptee_id INTEGER REFERENCES users (user_id),
+    requestee_id INTEGER REFERENCES users (user_id) ON DELETE CASCADE,
+    acceptee_id INTEGER REFERENCES users (user_id) ON DELETE CASCADE,
     CHECK (requestee_id <> acceptee_id)
 );
 
@@ -27,6 +27,6 @@ CREATE TABLE us_locations (
 
 CREATE TABLE favorites (
     favorites_id SERIAL PRIMARY KEY,
-    user_id INTEGER REFERENCES users (user_id),
-    location_id INTEGER REFERENCES us_locations (location_id)
+    user_id INTEGER REFERENCES users (user_id) ON DELETE CASCADE,
+    location_id INTEGER REFERENCES us_locations (location_id) ON DELETE CASCADE
 );

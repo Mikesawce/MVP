@@ -73,9 +73,30 @@ const editOne = async (query, query2, id, newItem, keys, params, res, next) => {
     }
 }
 
+const deleteOne = async (query, query2, id, newItem, keys, res, next) => {
+    try {
+        validateData(newItem, keys)
+        const result = await pool.query(query, [id])
+
+        if (!id) {
+            let error = new Error('Wrong path or Not found')
+            error.status = 404
+            throw error
+        }
+
+        const deleteResult = await pool.query(query2, [id])
+        if (deleteResult.rowCount === 1) {
+            res.status(200).json({ message: 'Nice delete!'})
+        }
+    } catch (err) {
+        next(err)
+    }
+}
+
 module.exports = {
     getAll,
     getOne,
     postOne,
-    editOne
+    editOne,
+    deleteOne
 }   
