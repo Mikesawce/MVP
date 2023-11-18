@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: */
+    --shadow: #1f1f1fff;
+    --white: #e9ede9ff;
+    --accent: #ade1ffff;
+    --brand: #fcd75fff;
+    --smoke: #61666bff;
+
+    background-color: var(--white);
+}
+
+#navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+#logo {
+    width: 200px
+}
+
+#searchBar {
+    display: flex;
+    border: 1px solid red;
+}
+
+#searchBar div {
+    border: 1px solid blue; 
+}
