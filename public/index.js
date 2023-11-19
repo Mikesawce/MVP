@@ -1,7 +1,8 @@
 const signUpBtn = document.querySelector('#signupBtn')
 const signUpConfirm = document.querySelector('#SignUpConfirm')
-
+// const profileBtn = document.querySelector
 // signUpBtn.addEventListener('click', ) open modal
+// profileBtn.addEventListener
 
 signUpConfirm.addEventListener('click', registerAccount)
 
@@ -33,4 +34,6 @@ async function registerAccount() {
     return false
 }
 
-
+async function addFriend() {
+    
+}
