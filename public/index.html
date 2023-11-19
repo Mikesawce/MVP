@@ -42,7 +42,7 @@
 
     <div id="register" class="modal off">
         <span class="close" title="Exit Registration">&times;</span>
-        <form class="modal-content">
+        <form class="modalContent">
             <div class="container">
                 <h1>Sign Up</h1>
                 <p>Who dis?</p>
@@ -63,9 +63,34 @@
                 <label for="pswConfirm"><b>Confirm Password:</b></label>
                     <input id="pswInput" class="psw" type="password" placeholder="Enter Password" name="pswConfirm" required>
 
-                    <button type="submit" id="SignUpConfirm">Sign Up!</button>
+                <button type="submit" id="SignUpConfirm">Sign Up!</button>
             </div>
         </form>
+    </div>
+
+    <div id="profilePage" class="modal off">
+        <span class="close" title="Exit Profile Page"> &times;</span>
+        <h1>Profile</h1>
+        <hr>
+
+        <div id="profileInfo">
+            <img src="" alt="img here" id="userProfileImage">
+            <h1>Profile Name</h1>
+            <p>info</p>
+            <button id="messageUser">Message</button>
+            <button id="requestFriend">Add Friend</button>
+            <button id="deleteFriend">Remove Friend</button>
+            <div id="friendsList"></div>
+        </div>
+        <div id="profileActivity">
+            <h2>Favorites</h2>
+            <div id="favoriteParks">
+                <div class="park"></div>
+                <div class="park"></div>
+                <div class="park"></div>
+            </div>
+            <h3>Create Post</h3>
+        </div>
     </div>
 </body>
 </html>

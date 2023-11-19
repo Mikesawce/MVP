@@ -41,7 +41,9 @@ const postOne = async (query, newItem, keys, params, res, next) => {
         validateData(newItem, keys)
         const result = await pool.query(query, params)
         newItem.id = result.rows[0].id
-        res.status(201).json(newItem)
+        res.set('Content-Type', 'application/json')
+        res.status(201)
+        res.json(newItem)
     } catch (err) {
         next(err)
     }

@@ -1,6 +1,8 @@
 const signUpBtn = document.querySelector('#signupBtn')
 const signUpConfirm = document.querySelector('#SignUpConfirm')
 
+// signUpBtn.addEventListener('click', ) open modal
+
 signUpConfirm.addEventListener('click', registerAccount)
 
 async function registerAccount() {
@@ -16,14 +18,19 @@ async function registerAccount() {
         password: psw
     }
 
-    fetch('http://localhost:1337/api/admin/users', {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(user)
-    })
-        .then(response => response.json())
-        .then(data => { console.log('Nice!', data) })
-        .catch((error) => { console.log('Not good...', error)})
+    try {
+        const result = await fetch('http://localhost:1337/api/admin/users', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+                },
+            body: JSON.stringify(user)
+        })
+        console.log(result.json())
+    } catch (err) {
+        console.error(err)
+    }
+    return false
 }
+
+
