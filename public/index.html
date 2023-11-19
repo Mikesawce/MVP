@@ -49,16 +49,19 @@
                 <hr>
 
                 <label for="name"><b>Full Name:</b></label>
-                    <input class="signUp" type="text" placeholder="First and Last name" name="name" required>
+                    <input id="nameInput" type="text" placeholder="First and Last name" name="name" required>
+                
+                <label for="userName"><b>Username:</b></label>
+                    <input id="userNameInput" type="text" placeholder="Username" name="name" required>
 
                 <label for="email"><b>Email:</b></label>
-                    <input class="signUp" type="text" placeholder="Enter Email" name="email" required>
+                    <input id="emailInput" type="text" placeholder="Enter Email" name="email" required>
 
                 <label for="psw"><b>Password:</b></label>
                     <input class="psw" type="password" placeholder="Enter Password" name="psw" required>
 
                 <label for="pswConfirm"><b>Confirm Password:</b></label>
-                    <input class="signUp psw" type="password" placeholder="Enter Password" name="pswConfirm" required>
+                    <input id="pswInput" class="psw" type="password" placeholder="Enter Password" name="pswConfirm" required>
 
                     <button type="submit" id="SignUpConfirm">Sign Up!</button>
             </div>

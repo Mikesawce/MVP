@@ -14,7 +14,7 @@ app.use(express.json())
 app.use(express.static('public'))
 
 //routes
-app.use('/admin', adminRoutes)
+app.use('/api/admin', adminRoutes)
 
 //error handler
 app.use((err, req, res, next) => {

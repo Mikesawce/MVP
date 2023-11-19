@@ -1,1 +1,0 @@
-//this is where users will be able to delete their account and sign out

@@ -3,8 +3,6 @@ const router = express.Router()
 const pool = require('../database/db')
 const handlers = require('../database/handlers')
 
-//following routes are for testing/administrative purpose
-
 //get all users
 router.get('/users', async (req, res, next) => {
     const query = 'SELECT * FROM users;'
