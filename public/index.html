@@ -5,15 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./main.css">
+    <script src="./index.js" defer></script>
 </head>
 <body>
-    <div id="navbar">
-        <img src="./images/logo.png" id="logo">
-        <div id="searchBar">
-            <div>Map</div>
-            <div>Search</div>
-            <div id="userDropDown">Account</div>
+    <div id="header">
+        <div id="headerLeft">
+            <div id="events">
+                <div id="eventsBtn">Events</div>
+                <div id="eventsSearch">searchbar</div>
+            </div>
+            <div id="map">
+                <div id="mapBtn">Map</div>
+                <img id="mapIcon" src="./images/map-solid.svg" alt="map-solid">
+            </div>
         </div>
+        <div id="headerRight">
+            <div id="signupBtn" class="headerRight">Sign Up</div>
+            <img id="cog" src="./images/cog-solid.svg" alt="cog-solid">
+        </div>
+    </div>
+    <div id="banner">
+        <div id="logo">DAK</div>
+    </div>
+
+    <div id="hero">
+
+    </div>
+
+    <div id="topLocations">
+
+    </div>
+
+    <div id="footer">
+
+    </div>
+
+    <div id="register" class="modal off">
+        <span class="close" title="Exit Registration">&times;</span>
+        <form class="modal-content">
+            <div class="container">
+                <h1>Sign Up</h1>
+                <p>Who dis?</p>
+                <hr>
+
+                <label for="name"><b>Full Name:</b></label>
+                    <input class="signUp" type="text" placeholder="First and Last name" name="name" required>
+
+                <label for="email"><b>Email:</b></label>
+                    <input class="signUp" type="text" placeholder="Enter Email" name="email" required>
+
+                <label for="psw"><b>Password:</b></label>
+                    <input class="psw" type="password" placeholder="Enter Password" name="psw" required>
+
+                <label for="pswConfirm"><b>Confirm Password:</b></label>
+                    <input class="signUp psw" type="password" placeholder="Enter Password" name="pswConfirm" required>
+
+                    <button type="submit" id="SignUpConfirm">Sign Up!</button>
+            </div>
+        </form>
     </div>
 </body>
 </html>
