@@ -164,6 +164,8 @@ async function loadMostViewed() {
             address.textContent = `${elem['city']} ${elem['state']},
                                     ${elem['zipcode']}`
             description.textContent = `Read More`
+            img.style.backgroundColor = 'black'
+            
             //incrementing id for btn class
             id += 1
         });

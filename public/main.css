@@ -4,7 +4,7 @@
     box-sizing: border-box;
     font-family: 'DM Sans', sans-serif;
     --shadow: rgb(20, 19, 19);
-    --white: #e9ede9ff;
+    --white: rgb(215, 220, 215);
     --accent: rgb(221, 221, 221);
     --brand: #fcd75fff;
     --smoke: rgb(70, 75, 82);
@@ -18,7 +18,7 @@
     width: 100%;
     justify-content: space-between;
     background-color: whitesmoke;
-    border-bottom: 4px solid black;
+    border-bottom: 8px solid black;
 
     #headerRight {
         display: flex;
@@ -41,11 +41,6 @@
             width: 1rem;
             cursor: pointer;
         }
-
-        #cog:hover {
-            color: white;
-        }
-
     }
 
     #headerLeft {
@@ -54,6 +49,10 @@
         gap: 1rem;
         margin: 0 1rem;
         background-color: whitesmoke;
+        font-weight: bold;
+        color: red;
+        text-shadow: var(--shadow) 1px 2px 2px ;
+        font-size: 1.5rem;
     }    
 }
 
@@ -63,68 +62,77 @@
 }
 
 #hero {
-    background-color: var(--smoke);
+    background-color: whitesmoke;
     width: auto;
     min-height: 30rem;
-    margin: 1.5rem 1.2rem;
+    margin: 1rem 6rem 0 6rem;
     display: flex;
     justify-content: space-between;
-    border: .5rem solid var(--shadow);
+    gap: .5rem;
+    border-bottom: 4px solid black;
+    border-right: 4px solid black;
 
-    /* #heroLeft {
+    #heroLeft {
         display: flex;
-        background-color: var(--smoke);
-        align-items: center;
-        margin-left: 1.7rem;        
-    } */
+        align-items: center;       
+    }
 
     #heroImg {
-        width: 500px;
-        border: 1em double var(--shadow);
-        background-color: greenyellow;
+        width: 600px;
+        border: 2px solid black;
+        filter: grayscale();
+        box-shadow: 0 2px 5px 2px;
+        margin-bottom: 1.5rem;
+    }
+
+    #heroMiddle {
+        font-family: 'Noto Sans JP', sans-serif;
+        writing-mode: vertical-rl;
+        align-self: center;
+        text-align: center;
+        text-decoration: overline underline red;
     }
 
     #heroRight {
-        background-color: var(--smoke);
         width: 100%;
 
         #heroRight, h2 {
             font-size: 3rem;
-            background-color: var(--smoke);
             margin-top: 3.5rem;
-            margin-left: 2rem;
+            margin-left: 6rem;
             text-align: left;
-            color: var(--white);
+            color: var(--shadow);
+            text-shadow: red 2px 1px;
         }
         #heroRight, h3 {
             font-size: 5rem;
-            background-color: var(--smoke);
             text-align: left;
-            margin-left: 2rem;
-            color: var(--white);   
-            
+            margin-left: 10rem;
+            color: var(--shadow);   
+            text-shadow: red 2px 1px;
         }
         #heroRight, span {
-            color: greenyellow;
-            background-color: var(--smoke);
+            color: red;
+            text-shadow: var(--shadow) 2px 1px;
         }
     }
 }
 
 #topLocations {
-    background-color: var(--smoke);
     width: auto;
     min-height: 20rem;
-    margin: 2rem 1.2rem;
+    margin: 1rem 4rem;
     display: flex;
     align-items: center;
     justify-content:space-around;
-    border: .5rem solid var(--shadow);
 
     .topCard {
         width: 20%;
         height: 15rem;
         background-color: var(--white);
+        border-top: 3px solid black;
+        border-bottom: 3px solid black;
+        box-shadow: 2px 5px 2px;
     }
 
     .image {
@@ -133,23 +141,28 @@
         display: flex;
 
         .favBtn {
-            background-color: blue;
+            background-color: red;
             height: 2rem;
             width: 2rem;
             margin: .5rem .5rem;
-            opacity: .1 ;
+            opacity: .2;
+            border-radius: 30%;
+        }
+
+        .favBtn:hover {
+            opacity: 1;
         }
     }
 
     #topLocations, h1 {
         font-size: 1.5rem;
-        margin-left: .3em;
+        margin-left: .6em;
         background-color: var(--white);
     }
 
     .address {
-        margin-left: .8em;
-        font-size: .7rem;
+        margin-left: 1.4em;
+        font-size: .8rem;
         background-color: var(--white);
     }
 
