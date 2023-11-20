@@ -57,6 +57,10 @@
     }    
 }
 
+#userProfile {
+    border: none;
+    outline: none;
+}
 
 #hero {
     background-color: var(--smoke);
@@ -173,7 +177,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
-    transition: 100ms ease-in-out;
+    transition: 300ms ease-in-out;
     border: 1px solid lightgray;
     z-index: 10;
     width: 800px;
@@ -253,7 +257,7 @@
 
         }
 
-        #signUpConfirm {
+        .submitBtns {
             background-color: var(--shadow);
             color: whitesmoke;
             font-weight: bold;
@@ -272,6 +276,10 @@
 
     #registrationPicture {
         width: 180%;
+    }
+
+    #signPicture {
+        width: 130%;
     }
 }
 

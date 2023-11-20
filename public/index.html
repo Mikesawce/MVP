@@ -19,7 +19,7 @@
             <div data-modal-target="#registrationModal" id="signUp" class="headerBtn">Register</div>
             <div id="eventsBtn" class="headerBtn">Events</div>
             <div id="mapBtn" class="headerBtn">Map</div>
-            <div id="userProfile" class="headerBtn">Profile</div>
+            <button data-modal-target="#signInModal" id="userProfile" class="headerBtn">Profile</button>
             <img id="cog" src="./images/cog-solid.svg" alt="cog-solid">
         </div>
     </div>
@@ -51,7 +51,7 @@
         <div id="modalRight">
             <!-- content -->
             <div id="rightTop">
-                <div class="title">SIGN IN</div>
+                <div class="title">SIGN UP</div>
                 <button data-close-button class="closeRegistration">&times;</button>
             </div>
             <div id="modalRuler"></div>
@@ -71,12 +71,37 @@
                 <label for="pswConfirm"><b>Now hit it again.</b></label>
                 <input id="pswInput" class="psw" type="password" placeholder="Enter Password" name="pswConfirm" required>
 
-                <button data-confirm-button id="signUpConfirm">SUBMIT</button>
+                <button id="signUpConfirm" class="submitBtns">SUBMIT</button>
 
                 <p>I promise we'll have a terms of service soon.</p>
             </div>
         </div>
     </div>
+
+    <div id="signInModal" class="modal">
+        <div id="modalLeft">
+            <img src="./images/niket-nigde-8Mj4oQgpj_U-unsplash.jpg" id="signPicture">
+        </div>
+        <div id="modalRight">
+            <!-- content -->
+            <div id="rightTop">
+                <div class="title">SIGN IN PLAYA</div>
+                <button data-close-button class="closeRegistration">&times;</button>
+            </div>
+            <div id="modalRuler"></div>
+            <div id="rightBottom">
+                <label for="userName"><b>WHATS YA userNAME!?</b></label>
+                <input id="userNameInput2" type="text" placeholder="Username" name="name" required>
+
+                <label for="psw"><b>Shhh... Keep It A Secret!</b></label>
+                <input id="loginPsw" class="psw" type="password" placeholder="Enter Password" name="psw" required>
+
+                <button id="signInConfirm" class="submitBtns">SUBMIT</button>
+
+            </div>
+        </div>
+    </div>
+
     <div id="overlay"></div>
 </body>
 </html>

@@ -1,7 +1,8 @@
 //selectors
 const openModals = document.querySelectorAll('[data-modal-target]')
-const signUpConfirm = document.querySelector('[data-confirm-button]')
+const signUpConfirm = document.querySelector('#signUpConfirm')
 const closeModals = document.querySelectorAll('[data-close-button]')
+const logInConfirm = document.querySelector('#signInConfirm')
 const overlay = document.getElementById('overlay')
 
 //event listeners
@@ -19,14 +20,23 @@ closeModals.forEach(button => {
     })
 })
 
+
 overlay.addEventListener('click', () => {
     const modals = document.querySelectorAll('.modal.active')
     modals.forEach(modal => {
         closeModal(modal)
+        logIn(modal)
+        registerAccount(modal)
     })
 })
 
-signUpConfirm.addEventListener('click', registerAccount)
+signUpConfirm.addEventListener('click', () => {
+    registerAccount()
+})
+    
+logInConfirm.addEventListener('click', () => {
+    logIn()
+})
 
 function openModal(modal) {
     if (modal == null) {
@@ -44,11 +54,45 @@ function closeModal(modal) {
     overlay.classList.remove('active')
 }
 
+async function logIn() {
+    const userName = document.querySelector('#userNameInput2').value
+    const psw = document.querySelector('#loginPsw').value
+    const modal = document.getElementById('signInModal')
+
+    user = {
+        username: userName,
+        password: psw
+    }
+
+    try {
+        const result = await fetch('http://localhost:1337/api/users/login', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        const data = await result.json()
+        console.log(data)
+        loggedIn(data)
+        closeModal(modal)
+    } catch (err) {
+        console.error(err)
+    }
+}
+
+function loggedIn(arr) {
+    const profile = document.getElementById('userProfile')
+
+    profile.textContent = `${arr[0]}`
+}
+
 async function registerAccount() {
     const name = document.querySelector('#nameInput').value
     const userName = document.querySelector('#userNameInput').value
     const email = document.querySelector('#emailInput').value
     const psw = document.querySelector('#pswInput').value
+    const modal = document.getElementById('registrationModal')
 
     user = {
         name: name,
@@ -67,11 +111,10 @@ async function registerAccount() {
         })
         const data = await result.json()
         console.log(data)
-        
+        closeModal(modal)
     } catch (err) {
         console.error(err)
     }
-    return false
 }
 
 //On page load, loads most viewed locations
@@ -128,7 +171,6 @@ async function loadMostViewed() {
     } catch (err) {
         console.log(err)
     }
-
-    
 }
+
 loadMostViewed();

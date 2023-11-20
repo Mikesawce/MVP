@@ -4,7 +4,7 @@ const pool = require('../database/db')
 const handlers = require('../database/handlers')
 
 //user sign in
-router.get('/login', async (req, res, next) => {
+router.post('/login', async (req, res, next) => {
     const params = [req.body.username, req.body.password]
     const query = 'SELECT username FROM users WHERE username = $1'
     const query2 = 'SELECT password FROM users WHERE password = $1'

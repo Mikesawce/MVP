@@ -43,13 +43,15 @@ const logIn = async (query, query2, params, res, next) => {
         res.set('Content-Type', 'application/json')
 
         if (resultUserName.rowCount === 0) {
-            res.status(404).json({message: 'Invalid Username'})
-        }
+            res.status(404).json({ message: 'Invalid Username' })
+            return
+        } 
 
         const resultPsw = await pool.query(query2, [params[1]])
 
         if (resultPsw.rowCount === 0) {
-            res.status(404).json({message: 'Invalid Password'})
+            res.status(404).json({ message: 'Invalid Password' })
+            return
         }
 
         res.status(200).json(params)
