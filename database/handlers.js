@@ -4,7 +4,6 @@ const validateData = (data, keys) => {
     if (!keys.every(prop => data[prop])) {
         let error = new Error('Invalid Data')
         error.status = 400
-        res.set('Content-Type', 'plain/text')
         throw error
     }
 }
@@ -12,7 +11,8 @@ const validateData = (data, keys) => {
 const getAll = async (query, res, next) => {
     try {
         const result = await pool.query(query)
-     
+        
+        // res.header('Content-Type', 'application/json')
         res.status(200).json(result.rows)
     
     } catch (err) {

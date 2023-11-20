@@ -2,14 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* font-family: */
-    --shadow: #1f1f1fff;
+    font-family: 'DM Sans', sans-serif;
+    --shadow: rgb(20, 19, 19);
     --white: #e9ede9ff;
-    --accent: #ade1ffff;
+    --accent: rgb(221, 221, 221);
     --brand: #fcd75fff;
-    --smoke: rgb(80, 86, 94);
+    --smoke: rgb(70, 75, 82);
 
-    background-color: var(--white);
+    background-color: var(--accent);
 }
 
 #header {
@@ -40,6 +40,7 @@
             align-items: center;
             gap: .3rem;
             margin: 0 1rem;
+            background-color: whitesmoke;
         }
 
         #events {
@@ -47,6 +48,7 @@
             align-items: center;
             gap: .5rem;
             margin: 0 .3rem;
+            background-color: whitesmoke;
         }
     }
 
@@ -56,11 +58,15 @@
 
     #cog {
         height: 1rem;
+        margin-right: .5rem;
         background-color: whitesmoke;
     }
 
     #eventsSearch {
         width: 8rem;
+        background-color: var(--white);
+        border: 2px inset var(--shadow);
+        margin: 5px 5px;
     }
 
     #mapIcon {
@@ -72,12 +78,13 @@
 #banner {
     display: flex;
     gap:.5rem;
-    background-color: var(--smoke);
+    background-color: var(--shadow);
     align-items: center;
     justify-content: center;
     
     #logo {
         margin: .3rem;
+        background-color: var(--shadow);
     }
 }
 
@@ -86,6 +93,48 @@
     width: auto;
     min-height: 30rem;
     margin: 1.5rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    border: .5rem solid var(--shadow);
+
+    #heroLeft {
+        display: flex;
+        background-color: var(--smoke);
+        align-items: center;
+        margin-left: 1.7rem;        
+    }
+
+    #heroImg {
+        width: 500px;
+        border: 1em double var(--shadow);
+        background-color: greenyellow;
+    }
+
+    #heroRight {
+        background-color: var(--smoke);
+        width: 100%;
+
+        #heroRight, h2 {
+            font-size: 3rem;
+            background-color: var(--smoke);
+            margin-top: 3.5rem;
+            margin-left: 2rem;
+            text-align: left;
+            color: var(--white);
+        }
+        #heroRight, h3 {
+            font-size: 5rem;
+            background-color: var(--smoke);
+            text-align: left;
+            margin-left: 2rem;
+            color: var(--white);   
+            
+        }
+        #heroRight, span {
+            color: greenyellow;
+            background-color: var(--smoke);
+        }
+    }
 }
 
 #topLocations {
@@ -96,35 +145,53 @@
     display: flex;
     align-items: center;
     justify-content:space-around;
+    border: .5rem solid var(--shadow);
 
     .topCard {
-        border: 1px solid red;
         width: 20%;
         height: 15rem;
+        background-color: var(--white);
     }
 
     .image {
-        border: 1px solid red;
         width: 100%;
-        height: 75%;
+        height: 71%;
         display: flex;
 
-        .clickToFavorite {
+        .favBtn {
             background-color: blue;
             height: 2rem;
             width: 2rem;
             margin: .5rem .5rem;
+            opacity: .1 ;
         }
     }
 
-    .address {
-        border: 1px solid blue;
+    #topLocations, h1 {
+        font-size: 1.5rem;
+        margin-left: .3em;
+        background-color: var(--white);
     }
+
+    .address {
+        margin-left: .8em;
+        font-size: .7rem;
+        background-color: var(--white);
+    }
+
+    .description {
+        font-size: .6em;
+        margin-top: 2em;
+        margin: .5em .7em;
+        text-align: end;
+        background-color: var(--white);
+    }
+    
 
 }
 
 #footer {
-    background-color: var(--smoke);
+    background-color: var(--shadow);
     width: auto;
     min-height: 2rem;
     margin-top: 2rem;

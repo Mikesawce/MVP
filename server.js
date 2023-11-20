@@ -7,6 +7,7 @@ const app = express()
 
 //import routes
 const adminRoutes = require('./routes/adminRoutes')
+const locationRoutes = require('./routes/locationRoutes')
 
 //middleware
 app.use(cors())
@@ -14,6 +15,7 @@ app.use(express.json())
 app.use(express.static('public'))
 
 //routes
+app.use('/api', locationRoutes)
 app.use('/api/admin', adminRoutes)
 
 //error handler
