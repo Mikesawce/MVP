@@ -33,6 +33,28 @@ const getOne = async (query, id, res, next) => {
         res.status(200).json(result.rows[0])
     } catch (err) {
         next(err)
+        }
+}
+
+const logIn = async (query, query2, params, res, next) => {
+    try {
+        const resultUserName = await pool.query(query, [params[0]])
+        
+        res.set('Content-Type', 'application/json')
+
+        if (resultUserName.rowCount === 0) {
+            res.status(404).json({message: 'Invalid Username'})
+        }
+
+        const resultPsw = await pool.query(query2, [params[1]])
+
+        if (resultPsw.rowCount === 0) {
+            res.status(404).json({message: 'Invalid Password'})
+        }
+
+        res.status(200).json(params)
+    } catch (err) {
+        next (err)
     }
 }
 
@@ -95,10 +117,12 @@ const deleteOne = async (query, query2, id, newItem, keys, res, next) => {
     }
 }
 
+
 module.exports = {
     getAll,
     getOne,
     postOne,
     editOne,
-    deleteOne
+    deleteOne,
+    logIn
 }   
