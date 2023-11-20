@@ -13,22 +13,15 @@
 <body>
     <div id="header">
         <div id="headerLeft">
-            <div id="events">
-                <div id="eventsBtn">Events</div>
-                <div id="eventsSearch">searchbar</div>
-            </div>
-            <div id="map">
-                <div id="mapBtn">Map</div>
-                <img id="mapIcon" src="./images/map-solid.svg" alt="map-solid">
-            </div>
+            
         </div>
         <div id="headerRight">
-            <div id="signupBtn" class="headerRight">Sign Up</div>
+            <div data-modal-target="#registrationModal" id="signUp" class="headerBtn">Register</div>
+            <div id="eventsBtn" class="headerBtn">Events</div>
+            <div id="mapBtn" class="headerBtn">Map</div>
+            <div id="userProfile" class="headerBtn">Profile</div>
             <img id="cog" src="./images/cog-solid.svg" alt="cog-solid">
         </div>
-    </div>
-    <div id="banner">
-        <div id="logo">DAK</div>
     </div>
 
     <div id="hero">
@@ -44,66 +37,46 @@
     </div>
 
     <div id="topLocations">
+        <!-- on website load, top locations html generated from index.js -->
     </div>
 
     <div id="footer">
 
     </div>
 
-    <div id="register" class="modal off">
-        <span class="close" title="Exit Registration">&times;</span>
-        <form class="modalContent">
-            <div class="container">
-                <h1>Sign Up</h1>
-                <p>Who dis?</p>
-                <hr>
-
-                <label for="name"><b>Full Name:</b></label>
-                    <input id="nameInput" type="text" placeholder="First and Last name" name="name" required>
+    <div id="registrationModal" class="modal">
+        <div id="modalLeft">
+            <img src="./images/ben-allan-4Lf0BL6f_5c-unsplash.jpg" id="registrationPicture">
+        </div>
+        <div id="modalRight">
+            <!-- content -->
+            <div id="rightTop">
+                <div class="title">SIGN IN</div>
+                <button data-close-button class="closeRegistration">&times;</button>
+            </div>
+            <div id="modalRuler"></div>
+            <div id="rightBottom">
+                <label for="name"><b>What's Ya name!?</b></label>
+                <input id="nameInput" type="text" placeholder="First and Last name" name="name" required>
                 
-                <label for="userName"><b>Username:</b></label>
-                    <input id="userNameInput" type="text" placeholder="Username" name="name" required>
+                <label for="userName"><b>And Ya Username!?</b></label>
+                <input id="userNameInput" type="text" placeholder="Username" name="name" required>
 
-                <label for="email"><b>Email:</b></label>
-                    <input id="emailInput" type="text" placeholder="Enter Email" name="email" required>
+                <label for="email"><b>Every Site These Days Huh?</b></label>
+                <input id="emailInput" type="text" placeholder="Enter Email" name="email" required>
 
-                <label for="psw"><b>Password:</b></label>
-                    <input class="psw" type="password" placeholder="Enter Password" name="psw" required>
+                <label for="psw"><b>Shhh... Keep It A Secret!</b></label>
+                <input class="psw" type="password" placeholder="Enter Password" name="psw" required>
 
-                <label for="pswConfirm"><b>Confirm Password:</b></label>
-                    <input id="pswInput" class="psw" type="password" placeholder="Enter Password" name="pswConfirm" required>
+                <label for="pswConfirm"><b>Now hit it again.</b></label>
+                <input id="pswInput" class="psw" type="password" placeholder="Enter Password" name="pswConfirm" required>
 
-                <button type="submit" id="SignUpConfirm">Sign Up!</button>
+                <button data-confirm-button id="signUpConfirm">SUBMIT</button>
+
+                <p>I promise we'll have a terms of service soon.</p>
             </div>
-        </form>
-    </div>
-
-    <div id="profilePage" class="modal off">
-        <span class="close" title="Exit Profile Page"> &times;</span>
-        <h1>Profile</h1>
-        <hr>
-
-        <div id="profileInfo">
-            <img src="" alt="img here" id="userProfileImage">
-            <h1>Profile Name</h1>
-            <p>info</p>
-            <button id="messageUser">Message</button>
-            <button id="requestFriend">Add Friend</button>
-            <button id="deleteFriend">Remove Friend</button>
-            <div id="friendsList"></div>
-        </div>
-        <div id="profileActivity">
-            <h2>Favorites</h2>
-            <div id="favoriteParks">
-                <div class="park"></div>
-                <div class="park"></div>
-                <div class="park"></div>
-            </div>
-            <h3>Create Post</h3>
-            <div id="createPost"></div>
-            <h4>Activity</h4>
-            <div id="feed"></div>
         </div>
     </div>
+    <div id="overlay"></div>
 </body>
 </html>

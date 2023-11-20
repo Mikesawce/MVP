@@ -1,10 +1,48 @@
-const signUpBtn = document.querySelector('#signupBtn')
-const signUpConfirm = document.querySelector('#SignUpConfirm')
-// const profileBtn = document.querySelector
-// signUpBtn.addEventListener('click', ) open modal
-// profileBtn.addEventListener
+//selectors
+const openModals = document.querySelectorAll('[data-modal-target]')
+const signUpConfirm = document.querySelector('[data-confirm-button]')
+const closeModals = document.querySelectorAll('[data-close-button]')
+const overlay = document.getElementById('overlay')
+
+//event listeners
+openModals.forEach(button => {
+    button.addEventListener('click', () => {
+        const modal = document.querySelector(button.dataset.modalTarget)
+        openModal(modal)
+    })
+})
+
+closeModals.forEach(button => {
+    button.addEventListener('click', () => {
+        const modal = button.closest('.modal')
+        closeModal(modal)
+    })
+})
+
+overlay.addEventListener('click', () => {
+    const modals = document.querySelectorAll('.modal.active')
+    modals.forEach(modal => {
+        closeModal(modal)
+    })
+})
 
 signUpConfirm.addEventListener('click', registerAccount)
+
+function openModal(modal) {
+    if (modal == null) {
+        return
+    }
+    modal.classList.add('active')
+    overlay.classList.add('active')
+}
+
+function closeModal(modal) {
+    if (modal == null) {
+        return
+    }
+    modal.classList.remove('active')
+    overlay.classList.remove('active')
+}
 
 async function registerAccount() {
     const name = document.querySelector('#nameInput').value
@@ -36,6 +74,7 @@ async function registerAccount() {
     return false
 }
 
+//On page load, loads most viewed locations
 async function loadMostViewed() {
 
     try {
