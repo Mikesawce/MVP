@@ -2,6 +2,9 @@
 const express = require('express')
 const pool = require('./database/db')
 const cors = require('cors')
+const dotenv = require('dotenv')
+
+const port = process.env.PORT || 1337
 
 const app = express()
 
@@ -27,6 +30,6 @@ app.use((err, req, res, next) => {
 })
 
 //port listener
-app.listen(1337, () => {
-    console.log(`Listening on 1337`)
+app.listen(port, () => {
+    console.log(`Listening on ${port}`)
 })

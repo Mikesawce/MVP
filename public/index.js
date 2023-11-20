@@ -155,6 +155,7 @@ async function loadMostViewed() {
             btn.id = `${elem['location_id']}`
             btn.className = `favBtn`
             img.className = 'image'
+            img.id = `img${id}`
             address.className = 'address'
             description.className = 'description'
 
